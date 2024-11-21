@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ChevronLeft, Trash } from "lucide-react";
+import LedSeparator from "@/components/ui/led-separator";
 
 const formSchema = z.object({
     name: z.string().min(1),
@@ -123,7 +124,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
                     )
                 }
             </div>
-            <Separator />
+            <LedSeparator />
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
                     <div className="grid grid-cols-3 gap-8">

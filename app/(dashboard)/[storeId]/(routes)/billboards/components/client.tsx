@@ -11,6 +11,7 @@ import { Separator } from "@/components/ui/separator"
 import { DataTable } from "@/components/ui/data-table"
 import { ApiList } from "@/components/ui/api-list"
 import { Plus } from "lucide-react"
+import LedSeparator from "@/components/ui/led-separator";
 
 interface BillboardClientProps {
     data: BillboardColumn[]
@@ -28,20 +29,20 @@ export const BillboardClient: React.FC<BillboardClientProps> = ({
             <div className="flex items-center justify-between">
                 <Heading
                     title={`Billboards (${data.length})`}
-                    description="Manage billboards for your store"
+                    description="Manage advertisements for your store"
                 />
-                <Button className="text-white bg-gradient-to-r from-indigo-500 to-purple-500" size={isMobile ? "icon" : "default"} onClick={() => router.push(`/${params.storeId}/billboards/new`)}>
+                <Button className="text-white bg-gradient-to-r from-red-500 to-orange-500" size={isMobile ? "icon" : "default"} onClick={() => router.push(`/${params.storeId}/billboards/new`)}>
                     {isMobile ? (<Plus className="h-4 w-4 " />) : (<Plus className="mr-2 h-4 w-4" />)}
-                    {!isMobile && "Add New"}
+                {!isMobile && "Add New"}
                 </Button>
             </div>
-            <Separator className="bg-fuchsia-500" />
+            <LedSeparator />
             <DataTable columns={columns} data={data} searchKey="label" />
             <Heading
                 title="API"
                 description="API calls for Billboards"
             />
-            <Separator className="bg-fuchsia-500" />
+            <LedSeparator />
             <ApiList entityName="billboards" entityIdName="billboardId" />
         </>
     )

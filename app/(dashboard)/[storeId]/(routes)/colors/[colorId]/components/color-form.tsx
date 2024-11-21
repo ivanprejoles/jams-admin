@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
 import ImageUpload from "@/components/ui/image-upload";
 import { ChevronLeft, Trash } from "lucide-react";
+import LedSeparator from "@/components/ui/led-separator";
 
 const formSchema = z.object({
     name: z.string().min(1),
@@ -123,7 +124,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
                     )
                 }
             </div>
-            <Separator />
+            <LedSeparator />
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
                     <div className="grid grid-cols-3 gap-8">
@@ -152,7 +153,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
                                         <div className="flex items-center gap-x-4">
                                             <Input className="md:w-full w-60" disabled={loading} placeholder="#HEXCODE" {...field} />
                                             <div
-                                                className="border p-4 rounded-full"
+                                                className="border border-red-500 p-4 rounded-full"
                                                 style={{ backgroundColor: field.value }}
                                             />
                                         </div>

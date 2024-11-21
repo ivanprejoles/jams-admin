@@ -12,9 +12,9 @@ import { ThemeProvider } from '@/providers/theme-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Streetheus | Admin',
-  description: 'Streetheus admin dashboard for private use.',
-  openGraph: { images: ["/streetheus-logo.png"] },
+  title: 'Jams Footwear | Admin',
+  description: 'Jams Footwear admin dashboard for private use.',
+  openGraph: { images: ["/logo.png"] },
   icons: {
     icon: "/app/favicon.ico",
   },

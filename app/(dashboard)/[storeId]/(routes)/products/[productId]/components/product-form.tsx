@@ -21,6 +21,7 @@ import { AlertModal } from "@/components/modals/alert-modal";
 import { Checkbox } from "@/components/ui/checkbox";
 import ImageUpload from "@/components/ui/image-upload";
 import { ChevronLeft, Trash } from "lucide-react";
+import LedSeparator from "@/components/ui/led-separator";
 
 const formSchema = z.object({
     name: z.string().min(1),
@@ -147,7 +148,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                     )
                 }
             </div>
-            <Separator />
+            <LedSeparator />
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
                     <FormField
@@ -299,7 +300,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                                                     <div className="flex flex-row">
                                                         {color.name}
                                                         <div
-                                                            className="mt-1 ml-2 h-4 w-4 rounded-full border"
+                                                            className="mt-1 ml-2 h-4 w-4 rounded-full border border-red-500"
                                                             style={{ backgroundColor: color.value }}
                                                         />
                                                     </div>
@@ -317,7 +318,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                             control={form.control}
                             name="isFeatured"
                             render={({ field }) => (
-                                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4 md:w-full w-60">
+                                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-red-500 p-4 md:w-full w-60">
                                     <FormControl>
                                         <Checkbox
                                             checked={field.value}
@@ -341,7 +342,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                             control={form.control}
                             name="isArchived"
                             render={({ field }) => (
-                                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4 md:w-full w-60">
+                                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-red-500 p-4 md:w-full w-60">
                                     <FormControl>
                                         <Checkbox
                                             checked={field.value}

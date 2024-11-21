@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
 import { ApiAlert } from "@/components/ui/api-alert";
 import { Trash } from "lucide-react";
+import LedSeparator from "@/components/ui/led-separator";
 
 
 interface SettingsFormProps {
@@ -96,7 +97,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
                     <Trash className="h-4 w-4" />
                 </Button>
             </div>
-            <Separator className="bg-fuchsia-500" />
+            <LedSeparator />
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
                     <div className="grid grid-cols-3 gap-8">
@@ -107,19 +108,19 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
                                 <FormItem>
                                     <FormLabel>Name</FormLabel>
                                     <FormControl>
-                                        <Input className="md:w-full w-60 border-fuchsia-500" disabled={loading} placeholder="Store mame" {...field} />
+                                        <Input className="md:w-full w-60 border-red-500" disabled={loading} placeholder="Store mame" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
                     </div>
-                    <Button disabled={loading} className="ml-auto text-white bg-gradient-to-r from-indigo-500 to-purple-500" type="submit">
+                    <Button disabled={loading} className="ml-auto text-white bg-gradient-to-r from-red-500 to-orange-500" type="submit">
                         Save Changes
                     </Button>
                 </form>
             </Form>
-            <Separator className="bg-fuchsia-500" />
+            <LedSeparator />
             <ApiAlert
                 title="NEXT_PUBLIC_API_URL"
                 description={`${origin}/api/${params.storeId}`}

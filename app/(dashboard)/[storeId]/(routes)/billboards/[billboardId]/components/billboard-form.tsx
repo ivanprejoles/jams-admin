@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
 import ImageUpload from "@/components/ui/image-upload";
 import { ChevronLeft, Trash } from "lucide-react";
+import LedSeparator from "@/components/ui/led-separator";
 
 const formSchema = z.object({
     label: z.string().min(1),
@@ -121,7 +122,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
                     )
                 }
             </div>
-            <Separator />
+            <LedSeparator />
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
                     <FormField

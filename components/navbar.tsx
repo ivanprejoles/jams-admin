@@ -20,10 +20,10 @@ const Navbar = async () => {
     });
 
     return (
-        <div className="border-b border-fuchsia-500">
+        <div className="border-b border-red-500">
             <div className="flex h-16 items-center px-4">
                 <StoreSwitcher items={stores} />
-                <MainNav className="mx-6" />
+                <MainNav className="md:mx-6" />
                 <div className="ml-auto flex items-center space-x-4">
                     <ThemeToggle></ThemeToggle>
                     <UserButton afterSignOutUrl="/" />

@@ -8,7 +8,7 @@ export const Heading: React.FC<HeadingProps> = ({
     description
 }) => {
     return (
-        <div>
+        <div className="border border-red-500 p-4 rounded-3xl">
             <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
             <p className="text-sm text-muted-foreground">
                 {description}

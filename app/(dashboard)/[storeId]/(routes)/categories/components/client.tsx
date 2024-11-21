@@ -11,6 +11,7 @@ import { Separator } from "@/components/ui/separator"
 import { DataTable } from "@/components/ui/data-table"
 import { ApiList } from "@/components/ui/api-list"
 import { Plus } from "lucide-react"
+import LedSeparator from "@/components/ui/led-separator";
 
 interface CategoryClientProps {
     data: CategoryColumn[]
@@ -28,20 +29,20 @@ export const CategoryClient: React.FC<CategoryClientProps> = ({
             <div className="flex items-center justify-between">
                 <Heading
                     title={`Categories (${data.length})`}
-                    description="Manage categories for your store"
+                    description="Organize your product types"
                 />
-                <Button size={isMobile ? "icon" : "default"} onClick={() => router.push(`/${params.storeId}/categories/new`)}>
+                <Button className="text-white bg-gradient-to-r from-red-500 to-orange-500" size={isMobile ? "icon" : "default"} onClick={() => router.push(`/${params.storeId}/categories/new`)}>
                     {isMobile ? (<Plus className="h-4 w-4" />) : (<Plus className="mr-2 h-4 w-4" />)}
             {!isMobile && "Add New"}
                 </Button>
             </div>
-            <Separator className="bg-fuchsia-500" />
+            <LedSeparator />
             <DataTable columns={columns} data={data} searchKey="name" />
             <Heading
                 title="API"
                 description="API calls for Categories"
             />
-            <Separator className="bg-fuchsia-500" />
+            <LedSeparator />
             <ApiList entityName="categories" entityIdName="categoryId" />
         </>
     )
