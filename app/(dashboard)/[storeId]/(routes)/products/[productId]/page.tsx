@@ -28,7 +28,7 @@ const ProductPage = async ({
         select: {
           id: true,
         },
-      },
+    },
     },
   });
 

@@ -159,12 +159,14 @@ model OrderItem {
   orderId     String
   productId   String
   quantity    Int      @default(1) // Number of this product in the order
+  colors      String[]
+  sizes       String[]
   isBackorder Boolean  @default(false) // Flag for backordered items
   isReturned  Boolean  @default(false) // Flag for returned items
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   order       Order    @relation(fields: [orderId], references: [id])
-  product     Product  @relation("ProductToOrderItem",fields: [productId], references: [id])
+  product     Product  @relation("ProductToOrderItem", fields: [productId], references: [id])
 
   @@index([orderId])
   @@index([productId])

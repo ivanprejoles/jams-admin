@@ -72,7 +72,6 @@ export async function PATCH (
             }
         })
         
-        console.log(size)
         
         return NextResponse.json(size);
     } catch (error) {
