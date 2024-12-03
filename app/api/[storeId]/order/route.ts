@@ -24,7 +24,7 @@ export async function GET(
                         product: true,
                     },
                 },
-                Payment: {
+                payments: {
                     select: {
                         id: true,
                         orderId: true,
