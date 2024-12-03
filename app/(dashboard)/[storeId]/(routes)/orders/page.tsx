@@ -49,12 +49,12 @@ const OrdersPage = async ({ params }: { params: { storeId: string } }) => {
     phone: item.phone,
     address: item.address,
     products: item.orderItems
-    .map((orderItem) => {
-      const sizes = orderItem.sizes.join(", ");
-      const colors = orderItem.colors.join(", ");
-      return `${orderItem.product.name} (${sizes}; ${colors})`;
-    })
-    .join(", "),
+      .map((orderItem) => {
+        const sizes = orderItem.sizes.join(", ");
+        const colors = orderItem.colors.join(", ");
+        return `${orderItem.product.name} (${orderItem.quantity}) [${sizes} | ${colors}]`;
+      })
+      .join(", "),
     totalPrice: formatter.format(
       item.orderItems.reduce((total, orderItem) => {
         return total + orderItem.product.price.toNumber() * orderItem.quantity;
