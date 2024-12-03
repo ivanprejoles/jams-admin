@@ -41,15 +41,17 @@ export async function POST(
             (product: {
               id: string;
               quantity: number;
-              colors: { [key: string]: string };
+              colors: Record<string, string>;
+              sizes: Record<string, string>;
             }) => ({
               product: {
                 connect: {
                   id: product.id,
                 },
               },
-              quantity: product.quantity, // Add quantity here
-              colors: Object.values(product.colors),
+              quantity: product.quantity,
+              colors: Object.values(product.colors), // Convert Record to Array
+              sizes: Object.values(product.sizes), // Convert Record to Array
             })
           ),
         },
@@ -68,6 +70,8 @@ export async function POST(
                 name: true,
               },
             },
+            colors: true, // Include colors
+            sizes: true, // Include sizes
           },
         },
         phone: true,
