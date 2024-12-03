@@ -34,7 +34,7 @@ export const ApiAlert: React.FC<ApiAlertProps> = ({
     }
 
     return (
-        <Alert className="border-red-500">
+        <Alert className="border-red-500 bg-white dark:bg-black">
             <Server className="h-4 w-4" />
             <AlertTitle className="flex items-center gap-x-2">
                 {title}
@@ -44,7 +44,7 @@ export const ApiAlert: React.FC<ApiAlertProps> = ({
             </AlertTitle>
             <AlertDescription className="mt-4 flex items-center justify-between">
                 <code className="relative rounded bg-muted px-[0.3rem] py-[0.2 rem] font-mono text-sm font-semibold">
-                    {description}
+                    {description}   
                 </code>
                 <Button variant="outline" size="icon" onClick={onCopy}>
                     <Copy className="h-4 w-4 text-red-600" />

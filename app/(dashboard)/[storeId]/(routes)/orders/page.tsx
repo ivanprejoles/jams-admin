@@ -6,6 +6,7 @@ import { formatter } from "@/lib/utils";
 import { OrderClient } from "./components/client";
 import { OrderColumn, PaymentColumn } from "./components/columns";
 import ClientForm from "@/components/client-form";
+import { Order } from "@prisma/client";
 
 const OrdersPage = async ({ params }: { params: { storeId: string } }) => {
   const orders = await prismadb.order.findMany({
@@ -18,7 +19,7 @@ const OrdersPage = async ({ params }: { params: { storeId: string } }) => {
           product: true,
         },
       },
-      Payment: {
+      payments: {
         select: {
           id: true,
           orderId: true,
@@ -60,7 +61,7 @@ const OrdersPage = async ({ params }: { params: { storeId: string } }) => {
   }));
 
   const allPaymentDetails: PaymentColumn[] = orders.flatMap((order: any) =>
-    order.Payment.map((payment: any) => ({
+    order.payments.map((payment: any) => ({
       id: payment.id,
       orderId: payment.orderId,
       phone: payment.phone,

@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 
 import {
   ColumnDef,
@@ -10,7 +10,7 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   useReactTable,
-} from "@tanstack/react-table"
+} from "@tanstack/react-table";
 
 import {
   Table,
@@ -19,26 +19,24 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import Image from "next/image"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import Image from "next/image";
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
-  searchKey: string
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
+  searchKey: string;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
-  searchKey
+  searchKey,
 }: DataTableProps<TData, TValue>) {
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
-    []
-  )
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
   const table = useReactTable({
     data,
@@ -48,9 +46,9 @@ export function DataTable<TData, TValue>({
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
     state: {
-      columnFilters
+      columnFilters,
     },
-  })
+  });
 
   return (
     <div>
@@ -79,7 +77,7 @@ export function DataTable<TData, TValue>({
                             header.getContext()
                           )}
                     </TableHead>
-                  )
+                  );
                 })}
               </TableRow>
             ))}
@@ -95,15 +93,18 @@ export function DataTable<TData, TValue>({
                     <TableCell key={cell.id}>
                       {cell.column.id === "imageSrc" ? (
                         <div className="w-full h-full aspect-square relative rounded-md overflow-hidden">
-                            <Image
-                              src={cell.getValue() as string}
-                              alt="Product"
-                              layout="fill"
-                              className="object-cover"
-                            />
+                          <Image
+                            src={cell.getValue() as string}
+                            alt="Product"
+                            layout="fill"
+                            className="object-cover"
+                          />
                         </div>
                       ) : (
-                        flexRender(cell.column.columnDef.cell, cell.getContext())
+                        flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )
                       )}
                     </TableCell>
                   ))}
@@ -111,7 +112,10 @@ export function DataTable<TData, TValue>({
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} className="h-24 text-center">
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center"
+                >
                   No results.
                 </TableCell>
               </TableRow>
@@ -138,5 +142,5 @@ export function DataTable<TData, TValue>({
         </Button>
       </div>
     </div>
-  )
+  );
 }

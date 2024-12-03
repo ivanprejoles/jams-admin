@@ -59,7 +59,7 @@ model Size {
   store     Store     @relation("StoreToSize", fields: [storeId], references: [id])
   name      String
   value     String
-  products  Product[] @relation("SizeToProduct") // Unique relation name
+  products  Product[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 
@@ -72,46 +72,42 @@ model Color {
   store     Store     @relation("StoreToColor", fields: [storeId], references: [id])
   name      String
   value     String
-  products  Product[] @relation("ColorToProduct") // Unique relation name
+  products  Product[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 
   @@index([storeId])
 }
 
-enum SalesStatus {
-  SLOW
-  FAST
-}
-
 model Product {
-  id          String      @id @default(uuid())
-  storeId     String
-  store       Store       @relation("StoreToProduct", fields: [storeId], references: [id])
-  categoryId  String
-  category    Category    @relation("CategoryToProduct", fields: [categoryId], references: [id])
-  name        String
-  price       Decimal
-  stock       Int         @default(0)
-  salesCount  Int         @default(0)
-  salesStatus SalesStatus @default(SLOW)
-  isFeatured  Boolean     @default(false)
-  isArchived  Boolean     @default(false)
-  sizes       Size[]      @relation("SizeToProduct")
-  colors      Color[]     @relation("ColorToProduct")
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
-  images      Image[]     @relation("ProductToImage")
-  orderItems  OrderItem[] @relation("ProductToOrderItem")
+  id         String       @id @default(uuid())
+  storeId    String
+  store      Store        @relation("StoreToProduct", fields: [storeId], references: [id])
+  categoryId String
+  category   Category     @relation("CategoryToProduct", fields: [categoryId], references: [id])
+  name       String
+  price      Decimal
+  isFeatured Boolean      @default(false)
+  isArchived Boolean      @default(false)
+  sizeId     String
+  size       Size         @relation(fields: [sizeId], references: [id])
+  colorId    String
+  color      Color        @relation(fields: [colorId], references: [id])
+  images     Image[]
+  orderItems OrderItems[]
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
 
   @@index([storeId])
   @@index([categoryId])
+  @@index([sizeId])
+  @@index([colorId])
 }
 
 model Image {
   id        String   @id @default(uuid())
   productId String
-  product   Product  @relation("ProductToImage", fields: [productId], references: [id], onDelete: Cascade)
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
   url       String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -120,19 +116,19 @@ model Image {
 }
 
 model Order {
-  id         String      @id @default(uuid())
+  id         String       @id @default(uuid())
   storeId    String
-  store      Store       @relation("StoreToOrder", fields: [storeId], references: [id])
-  isPaid     Boolean     @default(false)
-  phone      String      @default("")
-  address    String      @default("")
-  userId     String      @default("")
-  email      String      @default("")
-  name       String      @default("")
-  createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
-  orderItems OrderItem[]
-  payments   Payment[]   @relation("OrderToPayment")
+  store      Store        @relation("StoreToOrder", fields: [storeId], references: [id])
+  isPaid     Boolean      @default(false)
+  phone      String       @default("")
+  address    String       @default("")
+  userId     String       @default("")
+  email      String       @default("")
+  name       String       @default("")
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  orderItems OrderItems[]
+  Payment    Payment[]
 
   @@index([storeId])
 }
@@ -140,7 +136,6 @@ model Order {
 model Payment {
   id        String   @id @default(uuid())
   orderId   String
-  order     Order    @relation("OrderToPayment", fields: [orderId], references: [id], onDelete: Cascade)
   email     String
   phone     String
   address   String
@@ -148,23 +143,19 @@ model Payment {
   imageSrc  String
   date      DateTime
   amount    Float
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([orderId])
 }
 
-model OrderItem {
-  id          String   @id @default(uuid())
-  orderId     String
-  productId   String
-  quantity    Int      @default(1) // Number of this product in the order
-  isBackorder Boolean  @default(false) // Flag for backordered items
-  isReturned  Boolean  @default(false) // Flag for returned items
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  order       Order    @relation(fields: [orderId], references: [id])
-  product     Product  @relation("ProductToOrderItem",fields: [productId], references: [id])
+model OrderItems {
+  id        String  @id @default(uuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id])
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
 
   @@index([orderId])
   @@index([productId])
