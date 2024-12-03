@@ -60,7 +60,7 @@ export async function DELETE(
       }
   
       // Step 1: Delete the related OrderItems
-      await prismadb.orderItems.deleteMany({
+      await prismadb.orderItem.deleteMany({
         where: {
           orderId: params.orderId,
         },
