@@ -31,7 +31,7 @@ export const BillboardClient: React.FC<BillboardClientProps> = ({
                     title={`Billboards (${data.length})`}
                     description="Manage advertisements for your store"
                 />
-                <Button className="text-white bg-gradient-to-r from-red-500 to-orange-500" size={isMobile ? "icon" : "default"} onClick={() => router.push(`/${params.storeId}/billboards/new`)}>
+                <Button className="text-white bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500" size={isMobile ? "icon" : "default"} onClick={() => router.push(`/${params.storeId}/billboards/new`)}>
                     {isMobile ? (<Plus className="h-4 w-4 " />) : (<Plus className="mr-2 h-4 w-4" />)}
                 {!isMobile && "Add New"}
                 </Button>

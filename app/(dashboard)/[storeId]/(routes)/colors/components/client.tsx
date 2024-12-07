@@ -31,7 +31,7 @@ export const ColorClient: React.FC<ColorClientProps> = ({
                     title={`Colors (${data.length})`}
                     description="Manage color options"
                 />
-                <Button className="text-white bg-gradient-to-r from-red-500 to-orange-500" size={isMobile ? "icon" : "default"} onClick={() => router.push(`/${params.storeId}/colors/new`)}>
+                <Button className="text-white bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500" size={isMobile ? "icon" : "default"} onClick={() => router.push(`/${params.storeId}/colors/new`)}>
                     {isMobile ? (<Plus className="h-4 w-4" />) : (<Plus className="mr-2 h-4 w-4" />)}
                     {!isMobile && "Add New"}
                 </Button>

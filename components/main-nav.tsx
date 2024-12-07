@@ -38,7 +38,7 @@ export function MainNav({
       href: `/${params.storeId}`,
       title: "Dashboard",
       icon: (
-        <IconHome className={cn("h-full w-full text-red-500", pathname === `/${params.storeId}` && 'text-orange-500')} />
+        <IconHome className={cn("h-full w-full text-cyan-600", pathname === `/${params.storeId}` && 'text-cyan-500')} />
       ),
       active: pathname === `/${params.storeId}`,
     },
@@ -46,14 +46,14 @@ export function MainNav({
       href: `/${params.storeId}/billboards`,
       title: "Billboard",
       icon: (
-        <IconChalkboard className={cn("h-full w-full text-red-500", pathname === `/${params.storeId}` && 'text-orange-500')} />
+        <IconChalkboard className={cn("h-full w-full text-cyan-600", pathname === `/${params.storeId}` && 'text-cyan-500')} />
       ),
       active: pathname === `/${params.storeId}/billboards`,
     },
     {
       href: `/${params.storeId}/categories`,
       icon: (
-        <IconCategory2 className={cn("h-full w-full text-red-500", pathname === `/${params.storeId}` && 'text-orange-500')} />
+        <IconCategory2 className={cn("h-full w-full text-cyan-600", pathname === `/${params.storeId}` && 'text-cyan-500')} />
       ),
       title: "Categories",
       active: pathname === `/${params.storeId}/categories`,
@@ -61,7 +61,7 @@ export function MainNav({
     {
       href: `/${params.storeId}/sizes`,
       icon: (
-        <IconRuler2 className={cn("h-full w-full text-red-500", pathname === `/${params.storeId}` && 'text-orange-500')} />
+        <IconRuler2 className={cn("h-full w-full text-cyan-600", pathname === `/${params.storeId}` && 'text-cyan-500')} />
       ),
       title: "Sizes",
       active: pathname === `/${params.storeId}/sizes`,
@@ -69,7 +69,7 @@ export function MainNav({
     {
       href: `/${params.storeId}/colors`,
       icon: (
-        <IconPalette className={cn("h-full w-full text-red-500", pathname === `/${params.storeId}` && 'text-orange-500')} />
+        <IconPalette className={cn("h-full w-full text-cyan-600", pathname === `/${params.storeId}` && 'text-cyan-500')} />
       ),
       title: "Colors",
       active: pathname === `/${params.storeId}/colors`,
@@ -77,7 +77,7 @@ export function MainNav({
     {
       href: `/${params.storeId}/products`,
       icon: (
-        <IconShoe className={cn("h-full w-full text-red-500", pathname === `/${params.storeId}` && 'text-orange-500')} />
+        <IconShoe className={cn("h-full w-full text-cyan-600", pathname === `/${params.storeId}` && 'text-cyan-500')} />
       ),
       title: "Products",
       active: pathname === `/${params.storeId}/products`,
@@ -85,7 +85,7 @@ export function MainNav({
     {
       href: `/${params.storeId}/orders`,
       icon: (
-        <IconBasket className={cn("h-full w-full text-red-500", pathname === `/${params.storeId}` && 'text-orange-500')} />
+        <IconBasket className={cn("h-full w-full text-cyan-600", pathname === `/${params.storeId}` && 'text-cyan-500')} />
       ),
       title: "Orders",
       active: pathname === `/${params.storeId}/orders`,
@@ -93,7 +93,7 @@ export function MainNav({
     {
       href: `/${params.storeId}/settings`,
       icon: (
-        <IconSettings className={cn("h-full w-full text-red-500", pathname === `/${params.storeId}` && 'text-orange-500')} />
+        <IconSettings className={cn("h-full w-full text-cyan-600", pathname === `/${params.storeId}` && 'text-cyan-500')} />
       ),
       title: "Settings",
       active: pathname === `/${params.storeId}/settings`,
@@ -116,7 +116,7 @@ export function MainNav({
                     <Link
                       href={route.href}
                       className={cn(
-                        "text-sm font-medium transition-colors bg-clip-text hover:text-transparent hover:bg-no-repeat hover:bg-gradient-to-r hover:from-red-500 hover:via-orange-500 hover:to-yellow-500",
+                        "text-sm font-medium transition-colors bg-clip-text hover:text-transparent hover:bg-no-repeat hover:bg-gradient-to-r hover:from-red-500 hover:via-cyan-500 hover:to-yellow-500",
                         route.active
                           ? "relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-red-500 via-orange-400 to-yellow-500"
                           : "text-muted-foreground"
@@ -147,7 +147,7 @@ export function MainNav({
             //     key={route.href}
             //     href={route.href}
             //     className={cn(
-            //         "text-sm font-medium transition-colors bg-clip-text hover:text-transparent hover:bg-no-repeat hover:bg-gradient-to-r hover:from-red-500 hover:via-orange-500 hover:to-yellow-500",
+            //         "text-sm font-medium transition-colors bg-clip-text hover:text-transparent hover:bg-no-repeat hover:bg-gradient-to-r hover:from-red-500 hover:via-cyan-500 hover:to-yellow-500",
             //         route.active ? "relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-red-500 via-orange-400 to-yellow-500" : "text-muted-foreground"
             //     )}
             // >

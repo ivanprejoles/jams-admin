@@ -65,7 +65,7 @@ export const CellAction: React.FC<CellActionProps> = ({
                         <Edit className="mr-2 h-4 w-4" />
                         Update
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setOpen(true)} className="!text-red-500">
+                    <DropdownMenuItem onClick={() => setOpen(true)} className="text-red-500">
                         <Trash className="mr-2 h-4 w-4" />
                         Delete
                     </DropdownMenuItem>

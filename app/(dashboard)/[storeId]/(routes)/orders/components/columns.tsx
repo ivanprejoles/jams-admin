@@ -1,48 +1,69 @@
-"use client"
+"use client";
 
-import { ColumnDef } from "@tanstack/react-table"
-import { CellAction } from "./cell-action"
-import { ImageCellAction } from "./image-cell-action"
+import { ColumnDef } from "@tanstack/react-table";
+import { CellAction } from "./cell-action";
+import { ImageCellAction } from "./image-cell-action";
+import OrderTooltipWrapper from "@/components/ui/product-tooltip-wrapper";
+import { formatProducts } from "@/lib/utils";
+
+export type OrderProduct = {
+  name: string;
+  quantity: number;
+  sizes: string[];
+  colors: string[];
+};
 
 export type OrderColumn = {
-  id: string
-  phone: string
-  address: string
-  email: string
-  name: string
-  userId:string
-  isPaid: boolean
-  totalPrice: string
-  products: string
-  createdAt: string
-}
+  id: string;
+  phone: string;
+  address: string;
+  email: string;
+  name: string;
+  userId: string;
+  isPaid: boolean;
+  totalPrice: string;
+  products: OrderProduct[];
+  createdAt: string;
+};
 
 export type PaymentColumn = {
-  id: string
-  orderId: string
-  phone: string
-  products: string
-  address: string
-  email: string
-  name: string
-  date: Date
-  amount: number
-  imageSrc: string
-  createdAt: string
-}
+  id: string;
+  orderId: string;
+  phone: string;
+  products: string;
+  address: string;
+  email: string;
+  name: string;
+  date: Date;
+  amount: number;
+  imageSrc: string;
+  createdAt: string;
+};
 
 export const columns: ColumnDef<OrderColumn>[] = [
   {
     accessorKey: "products",
     header: "Products",
+    cell: ({ row }) => {
+      const { formattedWithBr, formattedWithoutBr } = formatProducts(
+        row.original.products
+      );
+      return (
+        <OrderTooltipWrapper
+          maxLength={10}
+          value={formattedWithoutBr}
+          text={formattedWithBr}
+        />
+      );
+    },
   },
   {
     accessorKey: "email",
-    header: "Email"
+    header: "Email",
   },
   {
     accessorKey: "name",
-    header: "Name"
+    header: "Name",
   },
   {
     accessorKey: "phone",
@@ -62,9 +83,9 @@ export const columns: ColumnDef<OrderColumn>[] = [
   },
   {
     id: "actions",
-    cell: ({ row }) => <CellAction data={row.original} />
-  }
-]
+    cell: ({ row }) => <CellAction data={row.original} />,
+  },
+];
 
 export const paymentColumns: ColumnDef<PaymentColumn>[] = [
   {
@@ -77,11 +98,11 @@ export const paymentColumns: ColumnDef<PaymentColumn>[] = [
   },
   {
     accessorKey: "email",
-    header: "Email"
+    header: "Email",
   },
   {
     accessorKey: "name",
-    header: "Name"
+    header: "Name",
   },
   {
     accessorKey: "phone",
@@ -101,6 +122,6 @@ export const paymentColumns: ColumnDef<PaymentColumn>[] = [
   },
   {
     id: "actions",
-    cell: ({ row }) => <ImageCellAction data={row.original} />
-  }
-]
+    cell: ({ row }) => <ImageCellAction data={row.original} />,
+  },
+];

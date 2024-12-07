@@ -49,11 +49,11 @@ export default function StoreSwitcher({
                     role="combobox"
                     aria-expanded={open}
                     aria-label="Select Store"
-                    className={cn("w-[200px] justify-between border-red-500", className)}
+                    className={cn("w-[200px] justify-between border-cyan-200", className)}
                 >
-                    <StoreIcon className="mr-2 h-4 w-4 text-red-600" />
+                    <StoreIcon className="mr-2 h-4 w-4 text-[#008080]" />
                     {currentStore?.label}
-                    <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-80 text-red-400" />
+                    <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-80 text-[#008080]" />
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-[200px] p-0">
@@ -68,11 +68,11 @@ export default function StoreSwitcher({
                                     onSelect={() => onStoreSelect(store)}
                                     className="text-sm cursor-pointer"
                                 >
-                                    <StoreIcon className="mr-2 h-4 w-4 text-red-600" />
+                                    <StoreIcon className="mr-2 h-4 w-4 text-[#008080]" />
                                     {store.label}
                                     <Check
                                         className={cn(
-                                            "ml-auto h-4 w-4 text-red-600",
+                                            "ml-auto h-4 w-4 text-[#008080]",
                                             currentStore?.value === store.value
                                                 ? "opacity-100"
                                                 : "opacity-0"
@@ -82,7 +82,7 @@ export default function StoreSwitcher({
                             ))}
                         </CommandGroup>
                     </CommandList>
-                    <CommandSeparator className="bg-red-500" />
+                    <CommandSeparator className="bg-[#008080]" />
                     <CommandList>
                         <CommandGroup>
                             <CommandItem
@@ -92,7 +92,7 @@ export default function StoreSwitcher({
                                     storeModal.onOpen();
                                 }}
                             >
-                                <PlusCircle className="mr-2 h-5 w-5 text-red-600" />
+                                <PlusCircle className="mr-2 h-5 w-5 text-[#008080]" />
                                 Create Store
                             </CommandItem>
                         </CommandGroup>

@@ -400,7 +400,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               control={form.control}
               name="isFeatured"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-red-500 p-4 md:w-full w-60">
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-cyan-200 p-4 md:w-full w-60">
                   <FormControl>
                     <Checkbox
                       checked={field.value}
@@ -422,7 +422,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               control={form.control}
               name="isArchived"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-red-500 p-4 md:w-full w-60">
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-cyan-200 p-4 md:w-full w-60">
                   <FormControl>
                     <Checkbox
                       checked={field.value}

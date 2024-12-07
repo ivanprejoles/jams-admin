@@ -59,14 +59,14 @@ export function DataTable<TData, TValue>({
           onChange={(event) =>
             table.getColumn(searchKey)?.setFilterValue(event.target.value)
           }
-          className="max-w-sm border-red-500"
+          className="max-w-sm border-cyan-200"
         />
       </div>
-      <div className="rounded-md border border-red-500">
+      <div className="rounded-md border border-cyan-200">
         <Table>
-          <TableHeader className="border-red-500">
+          <TableHeader className="border-cyan-200">
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="border-red-500">
+              <TableRow key={headerGroup.id} className="border-cyan-200">
                 {headerGroup.headers.map((header) => {
                   return (
                     <TableHead key={header.id}>

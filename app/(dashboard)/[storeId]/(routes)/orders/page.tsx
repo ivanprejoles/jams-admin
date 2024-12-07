@@ -48,13 +48,12 @@ const OrdersPage = async ({ params }: { params: { storeId: string } }) => {
     name: item.name,
     phone: item.phone,
     address: item.address,
-    products: item.orderItems
-      .map((orderItem) => {
-        const sizes = orderItem.sizes.join(", ");
-        const colors = orderItem.colors.join(", ");
-        return `${orderItem.product.name} (${orderItem.quantity}) [${sizes} | ${colors}]`;
-      })
-      .join(", "),
+    products: item.orderItems.map((orderItem) => ({
+      name: orderItem.product.name,
+      quantity: orderItem.quantity,
+      sizes: orderItem.sizes,
+      colors: orderItem.colors,
+    })),
     totalPrice: formatter.format(
       item.orderItems.reduce((total, orderItem) => {
         return total + orderItem.product.price.toNumber() * orderItem.quantity;

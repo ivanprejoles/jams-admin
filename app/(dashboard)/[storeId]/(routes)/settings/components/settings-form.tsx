@@ -108,14 +108,14 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
                                 <FormItem>
                                     <FormLabel>Name</FormLabel>
                                     <FormControl>
-                                        <Input className="md:w-full w-60 border-red-500" disabled={loading} placeholder="Store mame" {...field} />
+                                        <Input className="md:w-full w-60 border-cyan-200" disabled={loading} placeholder="Store mame" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
                     </div>
-                    <Button disabled={loading} className="ml-auto text-white bg-gradient-to-r from-red-500 to-orange-500" type="submit">
+                    <Button disabled={loading} className="ml-auto text-white bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500" type="submit">
                         Save Changes
                     </Button>
                 </form>

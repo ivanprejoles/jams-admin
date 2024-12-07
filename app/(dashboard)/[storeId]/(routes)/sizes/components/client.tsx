@@ -31,7 +31,7 @@ export const SizeClient: React.FC<SizeClientProps> = ({ data }) => {
           description="Define size options"
         />
         <Button
-          className="text-white bg-gradient-to-r from-red-500 to-orange-500"
+          className="text-white bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500"
           size={isMobile ? "icon" : "default"}
           onClick={() => router.push(`/${params.storeId}/sizes/new`)}
         >
