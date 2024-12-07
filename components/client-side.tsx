@@ -52,19 +52,11 @@ const ClientSide = ({
       <div className="space-y-8">
         <div className="relative">
           <Heading title="Dashboard" description="Summary of your store" />
-          <SparklesCore
-            background="transparent"
-            minSize={0.4}
-            maxSize={1}
-            particleDensity={100}
-            className="w-full h-full absolute top-0 left-0 -z-10"
-            particleColor="#ff9800"
-          />
+          
         </div>
         <div className="grid gap-4 grid-cols-1 md:grid-cols-3">
           {metrics.map((metric, index) => (
-            <BackgroundGradient key={index} className="rounded-[22px]">
-              <Card className="rounded-[20px] border-none bg-white/90 dark:bg-black/90  backdrop-blur-sm">
+              <Card key={index} className="rounded-[20px] border border-red-500 bg-white/90 dark:bg-black/90  backdrop-blur-sm">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium ">
                     {metric.title}
@@ -79,11 +71,10 @@ const ClientSide = ({
                   <div className="text-2xl font-bold ">{metric.value}</div>
                 </CardContent>
               </Card>
-            </BackgroundGradient>
           ))}
         </div>
-        <BackgroundGradient className="rounded-[22px]">
-          <Card className="col-span-4 rounded-[20px] border-none bg-white/90 dark:bg-black/90 backdrop-blur-sm">
+        {/* <BackgroundGradient className="rounded-[22px]"> */}
+          <Card className="col-span-4 rounded-[20px] border border-red-500 bg-white/90 dark:bg-black/90 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="">Overview</CardTitle>
             </CardHeader>
@@ -91,7 +82,7 @@ const ClientSide = ({
               <Overview data={graphRevenue} />
             </CardContent>
           </Card>
-        </BackgroundGradient>
+        {/* </BackgroundGradient> */}
       </div>
     // </TracingBeam>
   );

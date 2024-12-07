@@ -1,3 +1,5 @@
+import { SparklesCore } from "./sparkles";
+
 interface HeadingProps {
     title: string;
     description: string;
@@ -13,6 +15,14 @@ export const Heading: React.FC<HeadingProps> = ({
             <p className="text-sm text-muted-foreground">
                 {description}
             </p>
+            <SparklesCore
+            background="transparent"
+            minSize={0.4}
+            maxSize={1}
+            particleDensity={100}
+            className="w-full  h-full absolute top-0 left-0 z-50"
+            particleColor="#ff9800"
+          />
         </div>
     )
 }
